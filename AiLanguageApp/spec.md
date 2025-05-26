@@ -83,9 +83,9 @@
     - [x] Create `About.cshtml` to describe the application.
     - [x] Update `Index.cshtml` to be the main landing/home page.
     - [x] Update `_Layout.cshtml` to include navigation links to Home, Generator, Decipherer, and About pages.
-- [ ] Implement PageModel logic (.cshtml.cs) for UI interactions:
-    - [ ] Define `[BindProperty]` properties for inputs and outputs.
-    - [ ] Implement `OnGet()` for initial page load.
+- [x] Implement PageModel logic (.cshtml.cs) for UI interactions:
+    - [x] Define `[BindProperty]` properties for inputs and outputs.
+    - [x] Implement `OnGet()` for initial page load.
     - [ ] Implement `OnPost...Async()` named handler methods for form submissions.
 - [ ] Utilize a shared `_Layout.cshtml` for common page structure.
 - [ ] Implement basic server-side validation using data annotations and `ModelState.IsValid`.

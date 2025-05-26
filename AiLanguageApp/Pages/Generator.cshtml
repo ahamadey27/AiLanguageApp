@@ -5,16 +5,23 @@
 }
 
 <h2>AI Language Generator</h2>
+
+<!-- Display the message from PageModel -->
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="alert alert-info">@Model.Message</p>
+}
+
 <form method="post">
     <div>
         <label for="generatorInputText">Enter text to generate sound:</label><br />
-        <textarea id="generatorInputText" name="GeneratorInputText" rows="4" cols="50"></textarea>
+        <textarea id="generatorInputText" name="GeneratorInputText" rows="4" cols="50">@Model.GeneratorInputText</textarea>
     </div>
     <div>
         <button type="submit">Generate & Play Sound</button>
     </div>
     <div style="margin-top: 10px;">
         <label>Generated Sound Code (Optional):</label><br />
-        <pre id="soundCodeDisplay"></pre>
+        <pre id="soundCodeDisplay">@Model.SoundCodeDisplay</pre>
     </div>
 </form>

@@ -5,16 +5,19 @@
 }
 
 <h2>AI Language Decipherer</h2>
+
+<p>@Model.Message</p>
+
 <form method="post">
     <div>
         <label for="deciphererInputSoundCode">Enter sound code to decipher:</label><br />
-        <textarea id="deciphererInputSoundCode" name="DeciphererInputSoundCode" rows="4" cols="50"></textarea>
+        <textarea id="deciphererInputSoundCode" name="DeciphererInputSoundCode" rows="4" cols="50">@Model.DeciphererInputSoundCode</textarea>
     </div>
     <div>
         <button type="submit">Decipher Sound Code</button>
     </div>
     <div style="margin-top: 10px;">
         <label>Deciphered Text:</label><br />
-        <pre id="decipheredTextDisplay"></pre>
+        <pre id="decipheredTextDisplay">@Model.DecipheredTextDisplay</pre>
     </div>
 </form>
