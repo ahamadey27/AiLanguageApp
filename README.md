@@ -1,0 +1,2 @@
+# AiLanguageApp
+A web application, the "AI Language Generator/Decipherer," using ASP.NET Core Razor Pages and Azure. The application will convert textual input into a custom rule-based audio "language" (based on specific sound properties like frequency and duration) and decipher this audio language representation back into text. This project serves as a pedagogical tool for learning full-stack web development, data encoding/decoding, client-side audio manipulation with the Web Audio API, and cloud deployment practices
