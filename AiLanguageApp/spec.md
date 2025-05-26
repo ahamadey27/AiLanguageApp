@@ -59,25 +59,30 @@
 # Development Plan (MVP - Recommended Approach)
 
 ## Phase 1: Project Foundation and Setup
-- [ ] Define the scope and approach for the "AI Language" (rule-based, character-to-sound parameters).
-- [ ] Select ASP.NET Core Razor Pages as the web framework.
+- [x] Define the scope and approach for the "AI Language" (rule-based, character-to-sound parameters).
+- [x] Select ASP.NET Core Razor Pages as the web framework.
 - [ ] Configure the development environment:
-    - [ ] Install .NET SDK (latest stable).
-    - [ ] Install IDE (Visual Studio 2022 or VS Code with C# Dev Kit).
-    - [ ] Install Git.
-- [ ] Create a Microsoft Azure account (Free Tier sufficient).
-- [ ] Initialize a local Git repository for the project.
-- [ ] Document key technology choices and rationale (Web Framework, Backend Language, Client-Side Audio, Hosting Platform, Version Control, IDE).
+    - [x] Install .NET SDK (latest stable).
+    - [x] Install IDE (Visual Studio 2022 or VS Code with C# Dev Kit).
+    - [x] Install Git.
+- [x] Create a Microsoft Azure account (Free Tier sufficient).
+- [x] Initialize a local Git repository for the project.
+- [x] Document key technology choices and rationale (Web Framework, Backend Language, Client-Side Audio, Hosting Platform, Version Control, IDE).
 
 ## Phase 2: Building the User Interface (Simple & Functional)
-- [ ] Sketch basic UI/UX flow for Generator and Decipherer sections.
-- [ ] Implement core UI elements using Razor Pages (.cshtml):
-    - [ ] Input `<textarea>` for generator text.
-    - [ ] Button to "Generate & Play Sound".
-    - [ ] Optional: Display area for intermediate "sound code".
-    - [ ] Input area for "sound code" for decipherer.
-    - [ ] Button to "Decipher Sound Code".
-    - [ ] Display area for deciphered text.
+- [x] Sketch basic UI/UX flow for Generator and Decipherer sections.
+- [x] Implement core UI elements using Razor Pages (.cshtml):
+    - [x] Create `Generator.cshtml` with:
+        - [x] Input `<textarea>` for generator text.
+        - [x] Button to "Generate & Play Sound".
+        - [x] Optional: Display area for intermediate "sound code".
+    - [x] Create `Decipherer.cshtml` with:
+        - [x] Input area for "sound code" for decipherer.
+        - [x] Button to "Decipher Sound Code".
+        - [x] Display area for deciphered text.
+    - [x] Create `About.cshtml` to describe the application.
+    - [x] Update `Index.cshtml` to be the main landing/home page.
+    - [x] Update `_Layout.cshtml` to include navigation links to Home, Generator, Decipherer, and About pages.
 - [ ] Implement PageModel logic (.cshtml.cs) for UI interactions:
     - [ ] Define `[BindProperty]` properties for inputs and outputs.
     - [ ] Implement `OnGet()` for initial page load.

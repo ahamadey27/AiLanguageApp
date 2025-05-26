@@ -1,0 +1,38 @@
+@page
+@model AiLanguageApp.Pages.AboutModel
+@{
+    ViewData["Title"] = "About AI Language App";
+}
+
+<div class="text-center">
+    <h1 class="display-4">About the AI Language App</h1>
+</div>
+
+<hr />
+
+<p>
+    This application, the "AI Language Generator/Decipherer," is designed to convert textual input into a custom rule-based audio "language" 
+    and decipher this audio language representation back into text.
+</p>
+<p>
+    The "AI" in "AI Language Generator/Decipherer" refers to a deterministic, rule-based system, not machine learning or natural language processing.
+    It serves as a pedagogical tool for learning full-stack web development with ASP.NET Core Razor Pages, data encoding/decoding, 
+    client-side audio manipulation with the Web Audio API, and cloud deployment practices on Azure.
+</p>
+<p>
+    <strong>Core Functionalities:</strong>
+    <ul>
+        <li><strong>Generator:</strong> Takes text input and converts it into a sequence of sound parameters (frequency, duration, waveform) based on a predefined character-to-sound mapping. These parameters are then used to synthesize audio in the browser.</li>
+        <li><strong>Decipherer:</strong> Takes a "sound code" (typically a JSON string representing sound parameters) and converts it back into the original text by reversing the mapping process.</li>
+    </ul>
+</p>
+<p>
+    This project demonstrates key web development concepts including:
+    <ul>
+        <li>ASP.NET Core Razor Pages for server-side logic and UI rendering.</li>
+        <li>C# for backend development.</li>
+        <li>HTML, CSS, and JavaScript for the frontend.</li>
+        <li>Web Audio API for client-side sound synthesis.</li>
+        <li>Basic form handling and data validation.</li>
+    </ul>
+</p>
