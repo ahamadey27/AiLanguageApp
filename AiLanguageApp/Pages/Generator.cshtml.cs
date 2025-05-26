@@ -27,21 +27,28 @@ namespace AiLanguageApp.Pages
             _logger = logger;
         }
 
-        public class GeneratorModel : PageModel
+        public void OnGet()
         {
-            public void OnGet()
-            {
-                //Example: Set an initial message when the page loads
-                Message = "Enter text below and click 'Generate & Play Sound'.";
-
-
-            }
-
+            //Example: Set an initial message when the page loads
+            Message = "Enter text below and click 'Generate & Play Sound'.";
         }
 
-        
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                // If model validation fails, redisplay the page with validation messages
+                Message = "There was an error with your submission.";
+                return Page();
+            }
 
-        // We will implement the OnPostAsync handler in a later step
-        // For now, just having the properties is the goal.
+            // Placeholder logic for generating sound code
+            SoundCodeDisplay = $"Sound code for '{GeneratorInputText}' will appear here.";
+            Message = "Generated sound code. Ready to play (playback not yet implemented).";
+
+            // We might redirect or return the page. For now, returning the page
+            // will allow us to see the updated properties.
+            return Page();
+        }
     }
 }

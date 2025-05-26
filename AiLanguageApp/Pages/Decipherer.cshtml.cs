@@ -24,23 +24,24 @@ namespace AiLanguageApp.Pages
             _logger = logger;
         }
 
-        public class DeciphererModel : PageModel
+        public void OnGet()
         {
-            public void OnGet()
-            {
-                // Example: Set an initial message when the page loads
-                Message = "Enter the 'sound code' in the format expected and click 'Decipher Sound Code'.";
-            }
-
+            // Example: Set an initial message when the page loads
+            Message = "Enter the 'sound code' in the format expected and click 'Decipher Sound Code'.";
         }
 
-        
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid)
+            {
+                Message = "There was an error with your submission.";
+                return Page();
+            }
 
-        // Placeholder for future POST handler
-        // public async Task<IActionResult> OnPostAsync()
-        // {
-        //     // Logic for deciphering code will go here
-        //     return Page();
-        // }
+            DecipheredTextDisplay = $"Deciphered text for '{DeciphererInputSoundCode}' will appear here.";
+            Message = "Deciphered sound code. (Actual deciphering not yet implemented).";
+
+            return Page();
+        }
     }
 }
