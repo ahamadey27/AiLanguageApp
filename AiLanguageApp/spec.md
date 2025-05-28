@@ -94,9 +94,10 @@
 
 ## Phase 3: Implementing the AI Language Generator
 - [ ] Design the Character-to-Sound Encoding Scheme:
-    - [ ] Define the C# `SoundParameters` class/struct (Frequency, Duration, Waveform).
-    - [ ] Implement the mapping (e.g., `Dictionary<char, SoundParameters>`), initially hardcoded in C#.
-    - [ ] Define initial character set (e.g., A-Z, 0-9, space) and rules for unmapped characters.
+    - [x] Define the C# `SoundParameters` class/struct (Frequency, Duration, Waveform (Sine)).
+    - [x] Implement the mapping (e.g., `Dictionary<char, SoundParameters>`), initially hardcoded in C#.
+    - [x] Define initial character set (e.g., A-Z, 0-9, space, . , ? ! % $ @ " ')
+    - [ ] Define rules for unmapped characters (e.g., ignore, default sound, error) and case sensitivity.
 - [ ] Implement Server-Side Text-to-Sound Parameter Conversion:
     - [ ] C# logic in PageModel (or a service) to convert input text into a list/array of `SoundParameters` objects.
 - [ ] Implement Client-Side Audio Synthesis (JavaScript & Web Audio API):
