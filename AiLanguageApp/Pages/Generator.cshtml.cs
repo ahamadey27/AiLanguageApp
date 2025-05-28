@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace AiLanguageApp.Pages
 {
@@ -10,6 +11,7 @@ namespace AiLanguageApp.Pages
 
         // Property to bind the text input from the form
         [BindProperty]
+        [Required(ErrorMessage = "Please enter text to generate audio.")]
         public string? GeneratorInputText { get; set; } // The name matches the 'name' attribute of your textarea
 
         // Property to hold the generated sound code to display on the page

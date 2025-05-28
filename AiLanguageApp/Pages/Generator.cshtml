@@ -14,8 +14,9 @@
 
 <form method="post">
     <div>
-        <label for="generatorInputText">Enter text to generate sound:</label><br />
-        <textarea id="generatorInputText" name="GeneratorInputText" rows="4" cols="50">@Model.GeneratorInputText</textarea>
+        <label for="generatorInputText">Enter text to generate language:</label><br />
+        <textarea id="generatorInputText" name="GeneratorInputText" asp-for="GeneratorInputText" rows="4" cols="50">@Model.GeneratorInputText</textarea><br />
+        <span asp-validation-for="GeneratorInputText" class="text-danger"></span> <!-- ADD THIS LINE -->
     </div>
     <div>
         <button type="submit">Generate & Play Sound</button>

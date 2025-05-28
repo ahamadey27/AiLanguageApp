@@ -88,7 +88,7 @@
     - [x] Implement `OnGet()` for initial page load.
     - [x] Implement `OnPost...Async()` named handler methods for form submissions.
 - [x] Utilize a shared `_Layout.cshtml` for common page structure.
-- [ ] Implement basic server-side validation using data annotations and `ModelState.IsValid`.
+- [x] Implement basic server-side validation using data annotations and `ModelState.IsValid`.
 - [ ] Create a custom JavaScript file (e.g., `site.js`) and reference it for client-side enhancements.
 - [ ] Identify Web Audio API as the client-side technology for sound synthesis.
 

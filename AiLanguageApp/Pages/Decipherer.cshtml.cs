@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 
 namespace AiLanguageApp.Pages
 {
@@ -10,6 +11,7 @@ namespace AiLanguageApp.Pages
 
         //Property to bind the sound code input from another source
         [BindProperty]
+        [Required(ErrorMessage = "Please enter text to generate audio.")]
         public string? DeciphererInputSoundCode { get; set; } //string? (nullable string) indicates properties might be null
 
         //Property to hold the deciphered text to display on the page
