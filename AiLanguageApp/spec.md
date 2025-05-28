@@ -1,6 +1,6 @@
-# Project: AI Language Generator/Decipherer
+# Project: AI Language Generator
 
-**Goal:** To create a web application, the "AI Language Generator/Decipherer," using ASP.NET Core Razor Pages and Azure. The application will convert textual input into a custom rule-based audio "language" (based on specific sound properties like frequency and duration) and decipher this audio language representation back into text. This project serves as a pedagogical tool for learning full-stack web development, data encoding/decoding, client-side audio manipulation with the Web Audio API, and cloud deployment practices.
+**Goal:** To create a web application, the "AI Language Generator," using ASP.NET Core Razor Pages and Azure. The application will convert textual input into a custom rule-based audio "language" (based on specific sound properties like frequency and duration). This project serves as a pedagogical tool for learning full-stack web development, data encoding, client-side audio manipulation with the Web Audio API, and cloud deployment practices.
 
 # Components
 
@@ -21,7 +21,7 @@
 
 ### Data Storage/Representation (for "Language" Definition)
 - **Encoding Scheme Storage:** C# `Dictionary<char, SoundParameters>` (initially hardcoded)
-- **"Language" Data Transfer:** JSON strings representing sequences of sound parameters.
+- **"Language" Data Transfer:** JSON strings representing sequences of sound parameters for generation.
 
 ### Version Control
 - **System:** Git
@@ -48,12 +48,6 @@
     - `' ' (space) -> { Frequency = 0 (silence), Duration = 100, Waveform = "N/A" }`
     - `'.' (period) -> { Frequency = 300 (example), Duration = 50, Waveform = "square" }`
 
-## Decipherer Input Format
-- **Primary Method:** JSON string representing an array of `SoundParameters` objects.
-  - Example: `[{"frequency":440,"duration":200,"waveform":"sine"}, {"frequency":493,"duration":200,"waveform":"sine"}]`
-- **Alternative (Simpler):** Delimited string.
-  - Example: `"440,200,sine;493,200,sine;0,100,N/A"`
-
 ---
 
 # Development Plan (MVP - Recommended Approach)
@@ -70,19 +64,15 @@
 - [x] Document key technology choices and rationale (Web Framework, Backend Language, Client-Side Audio, Hosting Platform, Version Control, IDE).
 
 ## Phase 2: Building the User Interface (Simple & Functional)
-- [x] Sketch basic UI/UX flow for Generator and Decipherer sections.
+- [x] Sketch basic UI/UX flow for the Generator section.
 - [x] Implement core UI elements using Razor Pages (.cshtml):
     - [x] Create `Generator.cshtml` with:
         - [x] Input `<textarea>` for generator text.
         - [x] Button to "Generate & Play Sound".
         - [x] Optional: Display area for intermediate "sound code".
-    - [x] Create `Decipherer.cshtml` with:
-        - [x] Input area for "sound code" for decipherer.
-        - [x] Button to "Decipher Sound Code".
-        - [x] Display area for deciphered text.
     - [x] Create `About.cshtml` to describe the application.
     - [x] Update `Index.cshtml` to be the main landing/home page.
-    - [x] Update `_Layout.cshtml` to include navigation links to Home, Generator, Decipherer, and About pages.
+    - [x] Update `_Layout.cshtml` to include navigation links to Home, Generator, and About pages.
 - [x] Implement PageModel logic (.cshtml.cs) for UI interactions:
     - [x] Define `[BindProperty]` properties for inputs and outputs.
     - [x] Implement `OnGet()` for initial page load.
@@ -115,30 +105,14 @@
     - [x] Transfer `SoundParameters` list from server to client (e.g., AJAX call returning JSON, or embedding in page on post-back).
     - [x] Provide UI feedback (e.g., "Playing sound...").
 
-## Phase 4: Implementing the AI Language Decipherer
-- [ ] Define and document the "Encoded" Language Input Format for deciphering (JSON string preferred).
-- [ ] Implement Decoding Logic (C# Backend - PageModel handler):
-    - [ ] Receive the encoded sound data string from form submission.
-    - [ ] Parse the input string into a list of `SoundParameters` objects (or equivalent).
-    - [ ] Create a reverse mapping from `SoundParameters` (or a key derived from them) back to `char`.
-    - [ ] Iterate through the parsed sound parameters, look up corresponding characters, and build the result string.
-    - [ ] Implement error handling for malformed input or unmappable sound parameters.
-- [ ] Integrate Decipherer with the UI:
-    - [ ] Wire "Decipher Sound Code" button to submit form to the PageModel handler.
-    - [ ] Bind the deciphered text to a public property in the PageModel.
-    - [ ] Display the deciphered text result on the Razor Page.
-
-## Phase 5: Ensuring Quality: Testing and Best Practices
+## Phase 4: Ensuring Quality: Testing and Best Practices
 - [ ] **Unit Testing (using xUnit or MSTest):** (See Testing Checklist for details)
     - [ ] Create a separate test project.
     - [ ] Test Character-to-Sound Parameter mapping.
-    - [ ] Test Sound Parameter-to-Character reverse mapping.
     - [ ] Test Text-to-List-of-Sound-Parameters conversion.
-    - [ ] Test List-of-Sound-Parameters-to-Text conversion.
     - [ ] Cover happy paths, edge cases, and error conditions.
 - [ ] **Integration Testing (using `Microsoft.AspNetCore.Mvc.Testing`):** (See Testing Checklist for details)
     - [ ] Test Generator form submission and PageModel processing.
-    - [ ] Test Decipherer form submission, PageModel processing, and result display.
     - [ ] Test server-side validation logic.
 - [ ] **Adhere to ASP.NET Core Best Practices:**
     - [ ] Use `async` and `await` for I/O-bound operations in PageModel handlers.
@@ -149,7 +123,7 @@
     - [ ] Maintain clear code organization (e.g., Single Responsibility Principle).
     - [ ] Ensure security considerations (e.g., anti-forgery tokens are utilized by default).
 
-## Phase 6: Deployment to the Cloud: Azure Hosting
+## Phase 5: Deployment to the Cloud: Azure Hosting
 - [ ] Prepare the application for Azure deployment:
     - [ ] Verify NuGet package restoration.
     - [ ] Configure `appsettings.Production.json` if necessary (or use Azure App Settings).
@@ -163,7 +137,7 @@
     - [ ] Deploy using chosen method (Visual Studio Publish wizard, Azure CLI, or set up CI/CD with GitHub Actions/Azure DevOps).
 - [ ] Perform basic post-deployment verification and monitoring:
     - [ ] Browse to the application's public URL (e.g., `https://<appname>.azurewebsites.net`).
-    - [ ] Test core generator and decipherer functionalities.
+    - [ ] Test core generator functionalities.
     - [ ] Check Azure Log Stream for any runtime errors.
     - [ ] Review basic metrics in Azure portal (Overview blade).
 
@@ -174,23 +148,14 @@
 - [ ] Project builds and runs locally without errors.
 - **Unit Tests (C# Backend - e.g., xUnit/MSTest):**
     - [ ] `Character-to-SoundParameters` mapping: Correct `SoundParameters` returned for given characters.
-    - [ ] `SoundParameters-to-Character` reverse mapping: Correct character returned for given `SoundParameters`.
     - [ ] Text to `List<SoundParameters>` conversion:
         - [ ] Handles valid input text correctly.
         - [ ] Handles empty strings.
         - [ ] Handles strings with characters not in the encoding scheme (as per defined rules).
-    - [ ] `List<SoundParameters>` to Text conversion (Decipherer):
-        - [ ] Handles valid sequence of `SoundParameters` correctly.
-        - [ ] Handles empty list/input.
-        - [ ] Handles `SoundParameters` that don't map to a character (as per defined rules).
 - **Integration Tests (ASP.NET Core - `WebApplicationFactory`):**
     - [ ] **Generator Page:**
         - [ ] Submitting text via form POST to PageModel handler processes input.
         - [ ] PageModel makes sound parameters available (e.g., in model state or JSON response if AJAX).
-    - [ ] **Decipherer Page:**
-        - [ ] Submitting valid "sound code" string via form POST to PageModel handler.
-        - [ ] Correct deciphered text is set in PageModel property and displayed on re-rendered page.
-        - [ ] Submitting malformed/invalid "sound code" results in graceful error message/handling.
     - [ ] **Form Validation:**
         - [ ] Server-side validation (`ModelState.IsValid`) works for required fields.
         - [ ] Appropriate error messages displayed for invalid input.
@@ -205,7 +170,7 @@
         - [ ] Buttons are appropriately enabled/disabled during operations if applicable.
 - **Deployment Verification (Azure):**
     - [ ] Application loads and is accessible at the Azure App Service URL.
-    - [ ] All core functionalities (Generate, Play, Decipher) work as expected in the Azure environment.
+    - [ ] All core functionalities (Generate, Play) work as expected in the Azure environment.
     - [ ] No console errors in browser developer tools related to client-side script execution.
     - [ ] Azure Log Stream shows application starting and processing requests without critical errors.
 
@@ -213,7 +178,7 @@
 
 # General Notes
 - This project is designed as a pedagogical guide. The emphasis is on understanding both *what* to do and *why* specific technological and architectural choices are made.
-- The "AI" in "AI Language Generator/Decipherer" refers to a deterministic, rule-based system, not machine learning or natural language processing.
+- The "AI" in "AI Language Generator" refers to a deterministic, rule-based system, not machine learning or natural language processing.
 - An iterative development approach is recommended: start with core functionality and enhance incrementally.
 - Consistent use of Git for version control from the beginning is crucial.
 - Focus on adhering to ASP.NET Core best practices throughout the project.

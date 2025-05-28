@@ -1,29 +1,27 @@
 @page
 @model AiLanguageApp.Pages.AboutModel
 @{
-    ViewData["Title"] = "About AI Language App";
+    ViewData["Title"] = "About AI Language Generator App";
 }
 
 <div class="text-center">
-    <h1 class="display-4">About the AI Language App</h1>
+    <h1 class="display-4">About the AI Language Generator App</h1>
 </div>
 
 <hr />
 
 <p>
-    This application, the "AI Language Generator/Decipherer," is designed to convert textual input into a custom rule-based audio "language" 
-    and decipher this audio language representation back into text.
+    This application, the "AI Language Generator," is designed to convert textual input into a custom rule-based audio "language".
 </p>
 <p>
-    The "AI" in "AI Language Generator/Decipherer" refers to a deterministic, rule-based system, not machine learning or natural language processing.
-    It serves as a pedagogical tool for learning full-stack web development with ASP.NET Core Razor Pages, data encoding/decoding, 
+    The "AI" in "AI Language Generator" refers to a deterministic, rule-based system, not machine learning or natural language processing.
+    It serves as a pedagogical tool for learning full-stack web development with ASP.NET Core Razor Pages, data encoding,
     client-side audio manipulation with the Web Audio API, and cloud deployment practices on Azure.
 </p>
 <p>
-    <strong>Core Functionalities:</strong>
+    <strong>Core Functionality:</strong>
     <ul>
         <li><strong>Generator:</strong> Takes text input and converts it into a sequence of sound parameters (frequency, duration, waveform) based on a predefined character-to-sound mapping. These parameters are then used to synthesize audio in the browser.</li>
-        <li><strong>Decipherer:</strong> Takes a "sound code" (typically a JSON string representing sound parameters) and converts it back into the original text by reversing the mapping process.</li>
     </ul>
 </p>
 <p>
