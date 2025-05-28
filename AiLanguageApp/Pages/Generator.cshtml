@@ -19,7 +19,8 @@
         <span asp-validation-for="GeneratorInputText" class="text-danger"></span> <!-- ADD THIS LINE -->
     </div>
     <div>
-        <button type="submit">Generate & Play Sound</button>
+        <button type="submit" id="generateAndPlayButton">Generate & Play Sound</button>
+        <span id="playbackStatus" style="margin-left: 10px;"></span> <!-- For playback feedback -->
     </div>
     <div style="margin-top: 10px;">
         <label>Generated Sound Code (Optional):</label><br />
@@ -28,18 +29,44 @@
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} 
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} // Keep this if it's there
 
     @if (Model.SoundParametersJson != null && Model.SoundParametersJson != "[]")
     {
         <script>
-            // Make the sound parameters available to client-side JavaScript
-            var soundParametersForPlayback = JSON.parse('@Html.Raw(Model.SoundParametersJson)');
-            
-            // You can now log this to the console to verify in the browser
-            console.log("Sound parameters for playback:", soundParametersForPlayback);
+            document.addEventListener('DOMContentLoaded', function() {
+                // Make the sound parameters available to client-side JavaScript
+                var soundParametersForPlayback = JSON.parse('@Html.Raw(Model.SoundParametersJson)');
+                
+                console.log("Sound parameters for playback:", soundParametersForPlayback);
 
-            // Later, you will pass soundParametersForPlayback to your audio synthesis function
+                // Check if there are sound parameters to play (i.e., if this is a postback with data)
+                if (soundParametersForPlayback && soundParametersForPlayback.length > 0) {
+                    // Attempt to play sound immediately. 
+                    // User gesture might be required for AudioContext in some browsers if not already handled.
+                    // The click on "Generate & Play Sound" button itself should count as a user gesture.
+                    const playbackStatusSpan = document.getElementById('playbackStatus');
+                    if (playbackStatusSpan) {
+                         playbackStatusSpan.textContent = "Playing sound...";
+                    }
+                    
+                    playSoundSequence(soundParametersForPlayback);
+                    
+                    // Clear the status after a delay, assuming playback finishes
+                    // This is a simple approach; more robust would be to know when playback actually ends.
+                    setTimeout(() => {
+                        if (playbackStatusSpan) {
+                            playbackStatusSpan.textContent = "Playback finished.";
+                        }
+                        // Optionally clear it completely after another delay
+                        setTimeout(() => {
+                            if (playbackStatusSpan) {
+                                playbackStatusSpan.textContent = "";
+                            }
+                        }, 2000);
+                    }, soundParametersForPlayback.reduce((acc, p) => acc + p.Duration, 0) + 500); // Total duration + buffer
+                }
+            });
         </script>
     }
 }

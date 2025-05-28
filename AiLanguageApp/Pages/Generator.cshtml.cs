@@ -136,15 +136,15 @@ namespace AiLanguageApp.Pages
     if (soundParamsList.Any())
     {
         SoundParametersJson = JsonSerializer.Serialize(soundParamsList);
-        // SoundCodeDisplay can be simplified or updated
-        SoundCodeDisplay = $"Generated {soundParamsList.Count} sound units. JSON data is ready.";
-        Message = "Text converted to sound parameters. Ready for client-side playback.";
+        // You can keep the existing SoundCodeDisplay logic for debugging or remove it
+        // SoundCodeDisplay = $"Generated {soundParamsList.Count} sound units. JSON ready.";
+        // Message = "Text converted to sound parameters. Ready for client-side playback.";
     }
     else
     {
         SoundParametersJson = "[]"; // Empty JSON array if no parameters
-        SoundCodeDisplay = "No sound parameters generated for the input text.";
-        Message = "Input text did not contain any mappable characters.";
+        // SoundCodeDisplay = "No sound parameters generated for the input text.";
+        // Message = "Input text did not contain any mappable characters.";
     }
 
     return Page();

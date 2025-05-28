@@ -102,18 +102,18 @@
         - Rule: Ignore characters not found in the map after uppercase conversion.
 - [x] Implement Server-Side Text-to-Sound Parameter Conversion:
     - [x] C# logic in PageModel (or a service) to convert input text into a list/array of `SoundParameters` objects.
-- [ ] Implement Client-Side Audio Synthesis (JavaScript & Web Audio API):
-    - [ ] JavaScript function to receive the list of `SoundParameters`.
-    - [ ] Initialize `AudioContext`.
-    - [ ] For each `SoundParameters` object:
-        - [ ] Create and configure `OscillatorNode` (type, frequency).
-        - [ ] Create and configure `GainNode` (for volume control and smooth start/stop).
-        - [ ] Connect audio graph: `OscillatorNode` -> `GainNode` -> `audioContext.destination`.
-        - [ ] Schedule tone playback precisely using `oscillator.start(startTime)` and `oscillator.stop(stopTime)` based on `audioContext.currentTime`.
-- [ ] Integrate Generator with the UI:
-    - [ ] Wire "Generate & Play Sound" button to a JavaScript function.
-    - [ ] Transfer `SoundParameters` list from server to client (e.g., AJAX call returning JSON, or embedding in page on post-back).
-    - [ ] Provide UI feedback (e.g., "Playing sound...").
+- [x] Implement Client-Side Audio Synthesis (JavaScript & Web Audio API):
+    - [x] JavaScript function to receive the list of `SoundParameters`.
+    - [x] Initialize `AudioContext`.
+    - [x] For each `SoundParameters` object:
+        - [x] Create and configure `OscillatorNode` (type, frequency).
+        - [x] Create and configure `GainNode` (for volume control and smooth start/stop).
+        - [x] Connect audio graph: `OscillatorNode` -> `GainNode` -> `audioContext.destination`.
+        - [x] Schedule tone playback precisely using `oscillator.start(startTime)` and `oscillator.stop(stopTime)` based on `audioContext.currentTime`.
+- [x] Integrate Generator with the UI:
+    - [x] Wire "Generate & Play Sound" button to a JavaScript function.
+    - [x] Transfer `SoundParameters` list from server to client (e.g., AJAX call returning JSON, or embedding in page on post-back).
+    - [x] Provide UI feedback (e.g., "Playing sound...").
 
 ## Phase 4: Implementing the AI Language Decipherer
 - [ ] Define and document the "Encoded" Language Input Format for deciphering (JSON string preferred).
