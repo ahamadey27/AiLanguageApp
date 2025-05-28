@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AiLanguageApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb457dd908ce015e3e9a41dd03576a5d87ffaf7b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8ce920e16a1ce0253627557f0ca7c47ed86004b")]
 [assembly: System.Reflection.AssemblyProductAttribute("AiLanguageApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AiLanguageApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
