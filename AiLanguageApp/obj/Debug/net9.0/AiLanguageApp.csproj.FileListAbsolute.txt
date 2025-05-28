@@ -20,7 +20,6 @@ C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\sco
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\scopedcss\projectbundle\AiLanguageApp.bundle.scp.css
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\27kqp0qeue-b9sayid5wm.gz
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\8o6xi0nni3-61n19gt1b8.gz
-C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\banp1sjsr0-xtxxf3hu2r.gz
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\p5ugz87lpy-bqjiyaj88i.gz
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\7fu3z3e4i5-c2jlpeoesf.gz
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\fm1xddfibo-erw9l3u2r3.gz
@@ -91,3 +90,4 @@ C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\ref
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\AiLanguageApp.pdb
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\AiLanguageApp.genruntimeconfig.cache
 C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\ref\AiLanguageApp.dll
+C:\Users\hamad\Documents\GitHub\AiLanguageApp\AiLanguageApp\obj\Debug\net9.0\compressed\banp1sjsr0-1tv9bv2ueh.gz
