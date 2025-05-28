@@ -51,7 +51,7 @@ function playSoundSequence(soundParamsArray) {
         // Start with 0 volume, ramp up quickly, then ramp down before stop
         gainNode.gain.setValueAtTime(0, currentTime);
         gainNode.gain.linearRampToValueAtTime(0.7, currentTime + 0.01); // Ramp up to 70% volume in 0.01s
-        gainNode.gain.linearRampToValueAtTime(0, currentTime + (params.Duration / 1000) - 0.01); // Ramp down just before stopping
+        gainNode.gain.linearRampToValueAtTime(0, currentTime + ((params.Duration / 2) / 1000) - 0.01); // Ramp down just before stopping
 
         // Connect nodes: Oscillator -> GainNode -> Destination (speakers)
         oscillator.connect(gainNode);
@@ -59,10 +59,10 @@ function playSoundSequence(soundParamsArray) {
 
         // Start and stop the oscillator
         oscillator.start(currentTime);
-        oscillator.stop(currentTime + params.Duration / 1000); // Convert duration from ms to seconds
+        oscillator.stop(currentTime + (params.Duration / 2) / 1000); // Convert duration from ms to seconds
 
         // Advance current time for the next sound
-        currentTime += params.Duration / 1000;
+        currentTime += (params.Duration / 2) / 1000;
     });
 
     console.log("Sound sequence playback initiated. Total duration approx:", currentTime - audioContext.currentTime, "seconds");
