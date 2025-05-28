@@ -80,12 +80,6 @@ namespace AiLanguageApp.Pages
         [Required(ErrorMessage = "Please enter text to generate audio.")]
         public string? GeneratorInputText { get; set; } // The name matches the 'name' attribute of your textarea
 
-        // Property to hold the generated sound code to display on the page
-        // SupportsGet = true allows this property to be populated and displayed
-        // even on a GET request (e.g., after a POST-Redirect-GET pattern, or if set in OnGet)
-        [BindProperty(SupportsGet = true)]
-        public string? SoundCodeDisplay { get; set; }
-
         // You might also want a property for general messages to the user
         [BindProperty(SupportsGet = true)]
         public string? Message { get; set; }
@@ -136,14 +130,11 @@ namespace AiLanguageApp.Pages
     if (soundParamsList.Any())
     {
         SoundParametersJson = JsonSerializer.Serialize(soundParamsList);
-        // You can keep the existing SoundCodeDisplay logic for debugging or remove it
-        // SoundCodeDisplay = $"Generated {soundParamsList.Count} sound units. JSON ready.";
         // Message = "Text converted to sound parameters. Ready for client-side playback.";
     }
     else
     {
         SoundParametersJson = "[]"; // Empty JSON array if no parameters
-        // SoundCodeDisplay = "No sound parameters generated for the input text.";
         // Message = "Input text did not contain any mappable characters.";
     }
 

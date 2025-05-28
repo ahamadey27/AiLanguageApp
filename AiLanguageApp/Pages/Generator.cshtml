@@ -22,14 +22,10 @@
         <button type="submit" id="generateAndPlayButton">Generate & Play Sound</button>
         <span id="playbackStatus" style="margin-left: 10px;"></span> <!-- For playback feedback -->
     </div>
-    <div style="margin-top: 10px;">
-        <label>Generated Sound Code (Optional):</label><br />
-        <pre id="soundCodeDisplay">@Model.SoundCodeDisplay</pre>
-    </div>
 </form>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} // Keep this if it's there
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} 
 
     @if (Model.SoundParametersJson != null && Model.SoundParametersJson != "[]")
     {
