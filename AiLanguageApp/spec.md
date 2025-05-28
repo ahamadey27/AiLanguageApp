@@ -93,13 +93,15 @@
 - [x] Identify Web Audio API as the client-side technology for sound synthesis.
 
 ## Phase 3: Implementing the AI Language Generator
-- [ ] Design the Character-to-Sound Encoding Scheme:
+- [x] Design the Character-to-Sound Encoding Scheme:
     - [x] Define the C# `SoundParameters` class/struct (Frequency, Duration, Waveform (Sine)).
     - [x] Implement the mapping (e.g., `Dictionary<char, SoundParameters>`), initially hardcoded in C#.
     - [x] Define initial character set (e.g., A-Z, 0-9, space, . , ? ! % $ @ " ')
-    - [ ] Define rules for unmapped characters (e.g., ignore, default sound, error) and case sensitivity.
-- [ ] Implement Server-Side Text-to-Sound Parameter Conversion:
-    - [ ] C# logic in PageModel (or a service) to convert input text into a list/array of `SoundParameters` objects.
+    - [x] Define rules for unmapped characters (e.g., ignore, default sound, error) and case sensitivity.
+        - Rule: Convert input characters to uppercase before map lookup.
+        - Rule: Ignore characters not found in the map after uppercase conversion.
+- [x] Implement Server-Side Text-to-Sound Parameter Conversion:
+    - [x] C# logic in PageModel (or a service) to convert input text into a list/array of `SoundParameters` objects.
 - [ ] Implement Client-Side Audio Synthesis (JavaScript & Web Audio API):
     - [ ] JavaScript function to receive the list of `SoundParameters`.
     - [ ] Initialize `AudioContext`.

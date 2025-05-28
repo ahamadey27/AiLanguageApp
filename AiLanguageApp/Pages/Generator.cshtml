@@ -26,3 +26,20 @@
         <pre id="soundCodeDisplay">@Model.SoundCodeDisplay</pre>
     </div>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} 
+
+    @if (Model.SoundParametersJson != null && Model.SoundParametersJson != "[]")
+    {
+        <script>
+            // Make the sound parameters available to client-side JavaScript
+            var soundParametersForPlayback = JSON.parse('@Html.Raw(Model.SoundParametersJson)');
+            
+            // You can now log this to the console to verify in the browser
+            console.log("Sound parameters for playback:", soundParametersForPlayback);
+
+            // Later, you will pass soundParametersForPlayback to your audio synthesis function
+        </script>
+    }
+}
