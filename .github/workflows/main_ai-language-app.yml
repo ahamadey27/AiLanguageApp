@@ -24,10 +24,12 @@ jobs:
           dotnet-version: '9.x'
 
       - name: Build with dotnet
+        working-directory: ./AiLanguageApp
         run: dotnet build AiLanguageApp.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish AiLanguageApp.csproj -c Release -o ./myapp
+        working-directory: ./AiLanguageApp
+        run: dotnet publish AiLanguageApp.csproj -c Release -o ../myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -38,9 +40,6 @@ jobs:
   deploy:
     runs-on: windows-latest
     needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     
     steps:
       - name: Download artifact from build job
