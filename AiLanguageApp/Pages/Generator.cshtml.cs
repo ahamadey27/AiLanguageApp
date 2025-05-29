@@ -95,10 +95,10 @@ namespace AiLanguageApp.Pages
         public void OnGet()
         {
             //Example: Set an initial message when the page loads
-            Message = "Enter text below and click 'Generate & Play Sound'.";
+            Message = "Enter text below and click \'Generate & Play Sound\'.";
         }
 
-        public async Task<IActionResult> OnPostAsync()
+        public IActionResult OnPost() // Changed from async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
